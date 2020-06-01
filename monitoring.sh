@@ -5,8 +5,8 @@ IP=$(ip addr | grep 'inet' | grep -v inet6 | grep -vE '127\.[0-9]{1,3}\.[0-9]{1,
 		read -rp "IP address: " -e -i "$IP" IP
 sudo apt-get install -y gcc libgeoip-dev python-virtualenv python-dev geoip-database-extra uwsgi uwsgi-plugin-python nginx git
 cd /srv
-git clone https://github.com/freetextmike/monitoring.git
-git clone https://github.com/furlongm/openvpn-monitor.git
+git clone https://github.com/jm051484/monitoring.git
+git clone https://github.com/jm051484/openvpn-monitor.git
 cd openvpn-monitor
 virtualenv .
 . bin/activate
@@ -22,4 +22,3 @@ mkdir /var/lib/GeoIP
 cp /srv/monitoring/GeoLite2-City.mmdb /var/lib/GeoIP
 service uwsgi restart
 service nginx restart
-
